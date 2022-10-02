@@ -1,0 +1,29 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>{{profileData.name}}</h2>
+            <h4>{{profileData.email}}</h4>
+        </div>
+        <img [src]="profileData.imageProfile" alt="Soufiane FADIL">
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/employee">
+        <mat-icon>perm_media</mat-icon>
+        Employees
+    </a>
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/media">
+        <mat-icon>perm_media</mat-icon>
+        Notifications
+    </a>
+
+
+</mat-nav-list>

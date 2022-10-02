@@ -1,0 +1,68 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>New Employee  </b></h4>
+                        <p class="pa-2"> I was Thougth that The Admin Can Added Tas Throught His Created New Emplye But Changed That </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+                 Back</a>
+                    </div>
+                </div>
+            </div>
+            <div class="formCustomDvider"></div>
+            <form #employeeForm="ngForm">
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="FirstName" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" required maxlength="255" [(ngModel)]="addEmployeeForm.name" name="Name" #name="ngModel">
+                            <div *ngIf="name.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!name.errors?.['required']">
+                                    Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-2">
+                        <h4> Add Some TAsks Directory </h4>
+                    </div>
+                    <div [formGroup]="addEmployeeFormParent">
+                        <div class="p-10 row pt-5" *ngFor="let task of tasksArraya.controls; let i = index " formArrayName="tasks">
+                            <!-- <div class="col-sm-3">
+                <label for="FirstName" class="p-t-b-10">Task Name<span class="requiredStar">*</span></label>
+              </div> -->
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" required maxlength="255" formControlName="{{i}}" value="Task  {{i + 1}} " placeholder="Task Name">
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="Descrption" required maxlength="255"  value="Sum Description About The Tasks " name="Description">
+                            </div>
+                            <div class="col-sm-2">
+                                <button color="warn" (click)="deleteTasks(i)" mat-mini-fab class="" aria-label="Example icon button with a home icon">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="delete">delete</mat-icon>
+                              </button>
+                            </div>
+
+                        </div>
+                        <div class="pb-3 pt-1">
+                            <button color="primary" (click)="addTasks()" mat-mini-fab class="" aria-label="Example icon button with a home icon">
+                          <mat-icon aria-hidden="false" aria-label="Example home icon"  fontIcon="add"></mat-icon>
+                        </button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="table-footer">
+                    <button class="btn btn-success" (click)="AddEmployee(employeeForm.form.valid)">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

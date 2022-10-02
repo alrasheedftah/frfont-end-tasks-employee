@@ -1,0 +1,12 @@
+.container-xl {
+    width: 100%;
+    padding: 20px;
+}
+
+.formCustomDvider {
+    padding-top: 50px;
+}
+
+.table-responsive {
+    overflow: visible;
+}
